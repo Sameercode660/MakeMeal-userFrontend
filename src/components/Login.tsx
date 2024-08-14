@@ -6,12 +6,13 @@ import axios from 'axios'
 import Link from 'next/link'
 import { Button } from './ui/button'
 import { useRouter } from 'next/navigation'
-
+import { useRecoilState } from 'recoil'
+import { validationAtom } from '@/recoil/RecoilUserState'
 
 
 function Login() {
 
-
+    const [login, setLogin] = useRecoilState(validationAtom)
     const [loading, setLoading] = useState<boolean>(false)
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
@@ -53,6 +54,7 @@ function Login() {
             localStorage.setItem('token', response.data.token)
 
             setLoading(false)
+            setLogin(true)
 
             router.push('/home')
 

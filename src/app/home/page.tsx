@@ -1,10 +1,12 @@
+import ProtectedRoute from '@/components/ProtectedRoute'
 import React from 'react'
+import HomeComponent from '@/components/HomeComponent'
 
 function page() {
   return (
-    <div>
-      Home
-    </div>
+    <ProtectedRoute>
+      <HomeComponent></HomeComponent>
+    </ProtectedRoute>
   )
 }
 

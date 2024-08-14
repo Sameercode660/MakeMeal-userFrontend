@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button"
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { useRecoilState } from 'recoil'
+import { validationAtom } from '@/recoil/RecoilUserState'
 
 function SignUp() {
 
@@ -14,6 +16,7 @@ function SignUp() {
     const [email, setEmail] = useState<string>('')
     const [phoneNumber, setPhoneNumber] = useState<string>('')
     const [password, setPassword] = useState<string>('')
+    const [loading, setLoading] = useState<boolean>(false)
 
     // error incator states
     const [errorName, setErrorName] = useState<boolean>(false)
@@ -25,8 +28,12 @@ function SignUp() {
 
     const router = useRouter()
 
+    const [login, setLogin] = useRecoilState(validationAtom)
+
     async function handleUserSignUp() {
         try {
+            setLoading(true)
+
             errorStateArray.forEach((fn) => {
                 fn(false)
             })
@@ -68,6 +75,8 @@ function SignUp() {
             localStorage.setItem('token', response.data.token)
             localStorage.setItem('id', response.data.response.id)
 
+            setLogin(true)
+            setLoading(false)
             router.push('/home')
         } catch (error) {
             console.log(error)
@@ -118,7 +127,7 @@ function SignUp() {
                     ></Input>
                 </div>
                 <div className='text-center'>
-                    <Button variant={'outline'} onClick={handleUserSignUp}>SignUp</Button>
+                    <Button variant={'outline'} onClick={handleUserSignUp}>{loading ? 'Please wait...' : 'Sign Up'}</Button>
                 </div>
             </div>
         </div>
