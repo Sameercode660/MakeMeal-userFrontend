@@ -1,12 +1,28 @@
 import ProtectedRoute from '@/components/ProtectedRoute'
 import React from 'react'
 import HomeComponent from '@/components/HomeComponent'
+import Exclusive from '@/components/homeComponents/Exclusive'
+import AllCategory from '@/components/homeComponents/AllCategory'
+import ShahiBiryani from '@/components/homeComponents/ShahiBiryani'
+import DastaneKabab from '@/components/homeComponents/DastaneKabab'
+import DessertsAndBeverages from '@/components/homeComponents/DessertsAndBeverages'
+import NewlyLaunched from '@/components/homeComponents/NewlyLaunched'
+import Footer from '@/components/homeComponents/Footer'
 
 function page() {
   return (
-    <ProtectedRoute>
+    // <ProtectedRoute>
+    // </ProtectedRoute>
+    <div className='w-full'>
       <HomeComponent></HomeComponent>
-    </ProtectedRoute>
+      <Exclusive></Exclusive>
+      <AllCategory></AllCategory>
+      <ShahiBiryani></ShahiBiryani>
+      <DastaneKabab></DastaneKabab>
+      <DessertsAndBeverages></DessertsAndBeverages>
+      <NewlyLaunched></NewlyLaunched>
+      <Footer></Footer>
+    </div>
   )
 }
 

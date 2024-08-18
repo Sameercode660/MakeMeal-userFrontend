@@ -1,9 +1,12 @@
 import React from 'react'
 import NavigationMenu from '@/components/NavigationMenu'
 
-function layout() {
+export function layout({children}: {children: React.ReactNode}) {
   return (
-    <NavigationMenu></NavigationMenu>
+    <>
+      <NavigationMenu></NavigationMenu>
+      {children}
+    </>
   )
 }
 

@@ -1,9 +1,10 @@
 import React from 'react'
+import ImageSlider from './ImageSlider'
 
 function HomeComponent() {
   return (
-    <div>
-      This is home
+    <div className='w-full'>
+      <ImageSlider></ImageSlider>
     </div>
   )
 }
