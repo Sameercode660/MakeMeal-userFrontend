@@ -25,7 +25,7 @@ const imageArray = [
 function ImageSlider() {
     return (
         <>
-            <div className='w-full flex justify-center h-[320px] items-center border-b bg-[rgb(254,250,240)]'>
+            <div className='w-full flex justify-center relative z-[-100] h-[320px] items-center border-b bg-[rgb(254,250,240)]'>
                 <Carousel className="max-w-[1200px] w-full px-4 md:px-0">
                     <CarouselContent className="flex">
                         {imageArray.map((url, index) => (
