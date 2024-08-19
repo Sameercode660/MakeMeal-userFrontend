@@ -21,7 +21,7 @@ function NavigationMenu() {
                 {/* logo and name  container*/}
                 <div className='flex items-center'>
                     <div>
-                        <Image src={Logo} alt='MM' width={70} height={70}></Image>
+                        <Image src={Logo} alt='MM' width={70} height={70} className='rounded-full'></Image>
                     </div>
                     <div>
                         <h1 className="font-extrabold text-transparent text-3xl sm:text-4xl xl:text-5xl bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-transparent h-full">Meak Meal</h1>

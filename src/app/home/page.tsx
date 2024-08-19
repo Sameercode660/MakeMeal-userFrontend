@@ -8,6 +8,8 @@ import DastaneKabab from '@/components/homeComponents/DastaneKabab'
 import DessertsAndBeverages from '@/components/homeComponents/DessertsAndBeverages'
 import NewlyLaunched from '@/components/homeComponents/NewlyLaunched'
 import Footer from '@/components/homeComponents/Footer'
+import Beverages from '@/components/homeComponents/Beverages'
+import SweetTreats from '@/components/homeComponents/SweetTreats'
 
 function page() {
   return (
@@ -20,6 +22,8 @@ function page() {
       <ShahiBiryani></ShahiBiryani>
       <DastaneKabab></DastaneKabab>
       <DessertsAndBeverages></DessertsAndBeverages>
+      <Beverages></Beverages>
+      <SweetTreats></SweetTreats>
       <NewlyLaunched></NewlyLaunched>
       <Footer></Footer>
     </div>

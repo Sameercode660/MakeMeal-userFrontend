@@ -1,33 +1,45 @@
+'use client'
+
 import React from 'react'
 import logo from '@/app/assets/MakeMeal.png'
 import { Button } from '../ui/button'
 
+interface propsType {
+  productId: string
+  name: string
+  description: string
+  price: number
+  imageUrl: string
+}
 
-function SingleProductData() {
+
+function SingleProductData({productId, name, description, price, imageUrl}: propsType) {
+
+
   return (
-    <div className='w-full flex justify-center items-center'>
+    <div className='w-full flex justify-center items-center flex-wrap md:h-[70vh] border'>
       {/* image container  */}
       <div className='w-[585px] h-[400px] m-1'>
-        <img src="https://rp-media.faasos.io/catalog/images/N2BJGMDDQQ.jpeg" className='w-full h-full object-cover rounded-lg' alt="" />
+        <img src={imageUrl} className='w-full h-full object-cover rounded-lg' alt="" />
       </div>
-      <div className='w-[585px] h-[400px] m-1 border flex flex-col space-y-5 items-start p-5'>
+      <div className='w-[585px] h-[400px] rounded-md flex flex-col space-y-5 items-start justify-start pl-2 pr-3'>
             {/* logo and make meal title  */}
             <div className='flex justify-center items-center'>
                 <img src={logo.src} className='w-[50px] h-[50px]' alt="MM" />
-                <span>Make Meal</span>
+                <span>by Make Meal</span>
             </div>
             {/* title  */}
             <div>
-                <span>Murgh Tikka Biryani (Chicken Tikka Dum Biryani - Serves 1)</span>
+                <span className='text-2xl font-semibold'>{name}</span>
             </div>
             {/* description  */}
-            <div className=''>
-                <span>(Boneless, Served with 1 Gulab Jamun & Mint Raita) A potpourri of extravagant flavours, tender chicken spiced with freshly ground Behrouz masala is charcoal-grilled then layered with fragrant basmati & dum-pukht in its full glory</span>
+            <div className='text-justify'>
+                <span className='text-lg font-thin text-gray-600'>{description}</span>
             </div>
              {/* price and add button   */}
-            <div>
-                <span>Rs.200</span>
-                <Button variant='outline'>Add</Button>
+            <div className='w-full p-1 flex justify-between items-center'>
+                <span className='text-xl font-semibold'>Rs.{price}</span>
+                <Button variant='outline' className='w-[150px] h-[45px] text-white bg-[rgb(189,162,110)] text-[1.2rem] pl-4 pr-4 pb-2 pt-2'>Add</Button>
             </div>
       </div>
     </div>
