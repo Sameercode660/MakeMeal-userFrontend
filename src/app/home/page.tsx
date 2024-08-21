@@ -25,7 +25,6 @@ function page() {
       <Beverages></Beverages>
       <SweetTreats></SweetTreats>
       <NewlyLaunched></NewlyLaunched>
-      <Footer></Footer>
     </div>
   )
 }

@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosLogOut } from "react-icons/io";
 import { ImCross } from "react-icons/im";
+import Link from 'next/link';
 
 function NavigationMenu() {
 
@@ -48,8 +49,10 @@ function NavigationMenu() {
                     </div>
                     {/* cart  */}
                     <div className='flex flex-col justify-center items-center'>
-                        <FaShoppingCart className='text-2xl' />
-                        <span className='text-[14px] text-gray-500 font-semibold'>cart</span>
+                        <Link href="/home/cart">
+                            <FaShoppingCart className='text-2xl' />
+                            <span className='text-[14px] text-gray-500 font-semibold'>cart</span>
+                        </Link>
                     </div>
                     {/* avatar  */}
                     <div className='flex flex-col justify-center items-center'>
@@ -73,7 +76,7 @@ function NavigationMenu() {
                 </div>
             </div>
             {/* Responsive Menu  */}
-            <div className={`flex flex-col space-y-5 sm:hidden w-[100%] h-[100%] z-100 fixed bg-white border-r transition-all duration-100 ease-in ${open ? 'left-0' : 'left-[-100%]'} `}>
+            <div className={`flex flex-col space-y-5 sm:hidden w-[100%] h-[100%] z-20 fixed bg-white border-r transition-all duration-100 ease-in ${open ? 'left-0' : 'left-[-100%]'} `}>
                 {/* avatar  */}
                 <div className='border-b border-gray-300 flex justify-center items-center flex-col p-2'>
                     <div >

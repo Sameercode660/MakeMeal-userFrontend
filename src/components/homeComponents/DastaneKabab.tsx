@@ -30,7 +30,7 @@ function DastaneKabab() {
       </div>
       {
         data === null ? (<Loader></Loader>) : (
-          <div className='grid grid-cols-1 sm:grid-cols-2 mg:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 mg:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6'>
             {data.map((product: any) => (
               <ProductCard
                 key={product.productId}
