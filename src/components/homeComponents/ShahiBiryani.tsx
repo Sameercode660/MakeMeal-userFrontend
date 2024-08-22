@@ -7,7 +7,7 @@ import ProductCard from '@/components/subComponent/ProductCard'
 
 function ShahiBiryani() {
 
-  const [data, setData] = useState<null | Product[]>(null)
+  const [data, setData] = useState<Product[]>([])
 
 
   async function fetchData() {
@@ -29,7 +29,7 @@ function ShahiBiryani() {
         <span className='text-3xl font-semibold'>All Categories</span>
       </div>
       {
-        data === null ? (<Loader></Loader>) : (
+        data?.length ? (<Loader></Loader>) : (
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
             {data.map((product: any) => (
               <ProductCard
