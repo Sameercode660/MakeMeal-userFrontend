@@ -29,7 +29,7 @@ function ShahiBiryani() {
         <span className='text-3xl font-semibold'>All Categories</span>
       </div>
       {
-        data?.length ? (<Loader></Loader>) : (
+        data?.length === 0 ? (<Loader></Loader>) : (
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
             {data.map((product: any) => (
               <ProductCard
