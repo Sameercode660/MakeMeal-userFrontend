@@ -7,6 +7,15 @@ import { Button } from '@/components/ui/button'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Cloading from '@/components/Cloading'
+import { pusher } from '@/utils/pusher'
+
+
+interface itemsTypes {
+    productId: string,
+    name: string,
+    quantity: number,
+    price: number
+}
 
 function page() {
 
@@ -16,6 +25,32 @@ function page() {
     const [phoneNumber, setPhoneNumber] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(true)
     const [clearCartLoading, setClearCartLoading] = useState<boolean>(false)
+    const [items, setItems] = useState<itemsTypes>([])
+
+
+
+    async function placeOrder() {
+        try {
+            const orderItems: ItemsTypes[] = data.map((item: any) => ({
+                productId: item.productId,
+                name: item.product.name,
+                quantity: item.quantity,
+                price: item.product.price * item.quantity,
+            }));
+
+            const orderData = {
+                userId: data[0].userId,
+                items: orderItems,
+                totalPrice: subTotal || 0,
+            };
+
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/api/order/placeOrder`, orderData)
+
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     async function fetchCartProduct() {
         try {
@@ -60,7 +95,20 @@ function page() {
 
     useEffect(() => {
 
+        const channel = pusher.subscribe('user-orders-123');
+
+        // Bind the event to handle new orders
+        channel.bind('order-confirmed', function (data: any) {
+            console.log('New order received:', data);
+            // Update OMS UI here
+        });
+
         fetchCartProduct()
+
+        return () => {
+            channel.unbind_all();
+            channel.unsubscribe();
+        };
     }, [])
 
     if (loading) {
@@ -112,7 +160,7 @@ function page() {
                 </div>
                 <div className='w-full p-6 border shadow-lg text-center flex justify-between items-center rounded-md'>
                     <div>
-                        <Button variant="outline" onClick={async() => {
+                        <Button variant="outline" onClick={async () => {
                             await clearCart()
                         }}>{clearCartLoading ? <Cloading width={50} hight={50}></Cloading> : 'Clear Cart'}</Button>
                     </div>
@@ -120,7 +168,7 @@ function page() {
                         <span>Total: {subTotal}</span>
                     </div>
                     <div>
-                        <Button variant="outline">Place order</Button>
+                        <Button variant="outline" onClick={placeOrder}>Place order</Button>
                     </div>
                 </div>
             </div>
