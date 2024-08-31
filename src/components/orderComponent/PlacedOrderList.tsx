@@ -1,9 +1,16 @@
-import React from 'react'
+'use client'
 
-function PlacedOrderList({ orderNumer, items, status, amount }: any) {
-    console.log(orderNumer, items, status, amount)
+import React, { useState } from 'react'
+import { Button } from '../ui/button'
+import { useRouter } from 'next/navigation'
+
+function PlacedOrderList({id, orderNumer, items, status, amount }: any) {
+
+    const router = useRouter()
+
     return (
-        <div className='w-full sm:w-[70%] md:w-1/2 border bg-gray-200 m-2 rounded-md p-2 flex flex-col space-y-5'>
+        <>
+            <div className='w-full sm:w-[70%] md:w-1/2 border bg-gray-200 m-2 rounded-md p-2 flex flex-col space-y-5'>
             <div>
                 <span className='text-xl font-semibold'>Your Order Number: {orderNumer}</span>
             </div>
@@ -29,7 +36,15 @@ function PlacedOrderList({ orderNumer, items, status, amount }: any) {
             <div>
                 <span>Total Amount: {amount}</span>
             </div>
+            {
+                status === 'served' ? (<div>
+                    <Button variant={'outline'} onClick={() => {
+                        router.push(`/home/complaint/${id}`)
+                    }}>Feedback</Button>
+                </div>) : ('')
+            }
         </div>
+        </>
     )
 }
 

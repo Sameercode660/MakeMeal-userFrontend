@@ -44,6 +44,7 @@ function page({params}: {params: {userId: string}}) {
             ): (
                 data.map((value: any) => (
                     <PlacedOrderList
+                    id={value.id}
                     key={value.id}
                     orderNumer={value.orderNumber}
                     items={value.items}
