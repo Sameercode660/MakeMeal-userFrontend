@@ -39,6 +39,7 @@ function NewlyLaunched() {
                 description={product.description}
                 imageUrl={product.imageUrl}
                 price={product.price}
+                availability={product.availability}
               ></ProductCard>
             ))}
           </div>

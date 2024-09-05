@@ -9,10 +9,11 @@ interface propsType {
     name: string
     description: string
     imageUrl: string
-    price: string
+    price: string,
+    availability: boolean
 }
 
-function ProductCard({productId, name, description, imageUrl, price}: propsType) {
+function ProductCard({productId, name, description, imageUrl, price, availability}: propsType) {
 
     const [adding, setAdding] = useState<string>('Add')
 
@@ -51,7 +52,13 @@ function ProductCard({productId, name, description, imageUrl, price}: propsType)
                     </span>
                 </div>
                 <div>
-                    <Button variant='outline' onClick={addToCart}>{adding}</Button>
+                    {
+                        availability === true ? (
+                            <Button variant='outline' onClick={addToCart}>{adding}</Button>
+                        ) : (
+                            <Button variant='outline' className='cursor-not-allowed'>Not Available</Button>
+                        )
+                    }
                 </div>
             </div>
         </Link>

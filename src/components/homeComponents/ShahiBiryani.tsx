@@ -26,7 +26,7 @@ function ShahiBiryani() {
   return (
     <div className='w-full flex flex-col items-center justify-center '>
       <div className='w-full pt-4 pb-2 flex justify-center items-center'>
-        <span className='text-3xl font-semibold'>All Categories</span>
+        <span className='text-3xl font-semibold'>Shahi Biryani</span>
       </div>
       {
         data?.length === 0 ? (<Loader></Loader>) : (
@@ -39,6 +39,7 @@ function ShahiBiryani() {
                 description={product.description}
                 imageUrl={product.imageUrl}
                 price={product.price}
+                availability={product.availability}
               ></ProductCard>
             ))}
           </div>

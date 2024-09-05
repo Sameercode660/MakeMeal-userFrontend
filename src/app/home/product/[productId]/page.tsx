@@ -21,6 +21,7 @@ export interface Product {
   discount: number;
   ingredient: string;
   calories: string;
+  availability: boolean
 }
 
 function page({params}: {params: {productId: string}}) {
@@ -57,6 +58,7 @@ function page({params}: {params: {productId: string}}) {
           description={data.description}
           price={data.price}
           imageUrl={data.imageUrl}
+          availability={data.availability}
           ></SingleProductData>
         )
       }

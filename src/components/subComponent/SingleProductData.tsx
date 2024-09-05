@@ -10,11 +10,12 @@ interface propsType {
   name: string
   description: string
   price: number
-  imageUrl: string
+  imageUrl: string,
+  availability: boolean
 }
 
 
-function SingleProductData({ productId, name, description, price, imageUrl }: propsType) {
+function SingleProductData({ productId, name, description, price, imageUrl, availability }: propsType) {
 
 
   const [adding, setAdding] = useState<string>('Add')
@@ -57,7 +58,14 @@ function SingleProductData({ productId, name, description, price, imageUrl }: pr
         {/* price and add button   */}
         <div className='w-full p-1 flex justify-between items-center'>
           <span className='text-xl font-semibold'>Rs.{price}</span>
-          <Button variant='outline' className='w-[150px] h-[45px] text-white bg-[rgb(189,162,110)] text-[1.2rem] pl-4 pr-4 pb-2 pt-2' onClick={addToCart} >{adding}</Button>
+          {
+            availability === true ? (
+              <Button variant='outline' className='w-[150px] h-[45px] text-white bg-[rgb(189,162,110)] text-[1.2rem] pl-4 pr-4 pb-2 pt-2' onClick={addToCart} >{adding}</Button>
+
+            ) : (
+              <Button variant='outline' className='cursor-not-allowed'>Not Available</Button>
+            )
+          }
         </div>
       </div>
     </div>
