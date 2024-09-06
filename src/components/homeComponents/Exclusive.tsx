@@ -14,7 +14,6 @@ function Exclusive() {
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/api/product/exclusiveProduct`, { category: 'exclusive' })
 
-      console.log(response)
       setData(response.data.response)
     } catch (error) {
       console.log(error)

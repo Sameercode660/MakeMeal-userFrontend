@@ -35,7 +35,7 @@ function page({params}: {params: {userId: string}}) {
   }, [])
 
   return (
-    <div className='w-full flex flex-col justify-center items-center'>
+    <div className='w-full flex flex-col justify-center items-center m-1'>
         {
             loading === true ? (
                 <div>

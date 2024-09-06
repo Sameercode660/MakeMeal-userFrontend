@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRecoilState } from 'recoil'
 import { validationAtom } from "@/recoil/RecoilUserState";
+import HomeLoader from "@/components/homeComponents/HomeLoader";
 
 export default function Home() {
 
@@ -40,6 +41,8 @@ export default function Home() {
   }, [router]); // including `router` in the dependency array
 
   return (
-    <div>Loading...</div>
+    <>
+      <HomeLoader></HomeLoader>
+    </>
   );
 }

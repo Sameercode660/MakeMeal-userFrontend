@@ -16,7 +16,6 @@ function DessertsAndBeverages() {
     const response: any = await categoryWiseDataFetching(category)
 
     setData(response.data.response)
-    console.log(data)
   }
 
   useEffect(() => {

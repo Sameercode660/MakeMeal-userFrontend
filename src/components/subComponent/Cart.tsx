@@ -29,9 +29,7 @@ function Cart({ id, userId, imageUrl, title, description, amount, quantity, prod
             
             setRemoveLoading(true)
             const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/api/product/cart/removeProduct`, {cartId: id})
-            
-            console.log(response)
-            
+                        
             await fetchCartProduct()
 
             setRemoveLoading(false)

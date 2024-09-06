@@ -26,7 +26,7 @@ function ImageSlider() {
     return (
         <>
             <div className='w-full flex justify-center h-[320px] relative z-10 items-center border-b bg-[rgb(254,250,240)]'>
-                <Carousel className="max-w-[1200px] w-full px-4 md:px-0">
+                <Carousel className="max-w-[1200px] max-sm:w-full w-full px-4 md:px-0">
                     <CarouselContent className="flex">
                         {imageArray.map((url, index) => (
                             <CarouselItem 

@@ -10,7 +10,7 @@ function PlacedOrderList({id, orderNumer, items, status, amount }: any) {
 
     return (
         <>
-            <div className='w-full sm:w-[70%] md:w-1/2 border bg-gray-200 m-2 rounded-md p-2 flex flex-col space-y-5'>
+            <div className='w-full sm:w-[70%] md:w-1/2 border bg-gray-200 m-2 max-sm:m-5 rounded-md p-2 flex flex-col space-y-5'>
             <div>
                 <span className='text-xl font-semibold'>Your Order Number: {orderNumer}</span>
             </div>
