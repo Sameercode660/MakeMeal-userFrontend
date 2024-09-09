@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import Cloading from '@/components/Cloading'
 import Loader from '@/components/Loader'
 
-function page({params}: {params: {userId: string}}) {
+function Page({params}: {params: {userId: string}}) {
 
 
     // const {userId} = params
@@ -58,4 +58,4 @@ function page({params}: {params: {userId: string}}) {
   )
 }
 
-export default page
+export default Page

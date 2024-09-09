@@ -11,7 +11,7 @@ import Footer from '@/components/homeComponents/Footer'
 import Beverages from '@/components/homeComponents/Beverages'
 import SweetTreats from '@/components/homeComponents/SweetTreats'
 
-function page() {
+function Page() {
   return (
     // <ProtectedRoute>
     // </ProtectedRoute>
@@ -29,4 +29,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

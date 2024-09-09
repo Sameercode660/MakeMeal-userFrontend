@@ -18,7 +18,7 @@ interface itemsTypes {
     price: number
 }
 
-function page() {
+function Page() {
 
     const [data, setData] = useState<any>([])
     const [subTotal, setSubTotal] = useState(null)
@@ -202,4 +202,4 @@ function page() {
 
 
 
-export default page
+export default Page

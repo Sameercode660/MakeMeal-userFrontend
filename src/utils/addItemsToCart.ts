@@ -2,7 +2,7 @@ import axios from "axios";
 
 interface ArgumentTypes {
     productId: string
-    userId: string | null
+    userId: string | null | undefined
     quantity: number
 }
 

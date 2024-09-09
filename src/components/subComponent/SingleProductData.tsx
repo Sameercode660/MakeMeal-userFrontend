@@ -25,7 +25,11 @@ function SingleProductData({ productId, name, description, price, imageUrl, avai
     e.preventDefault()
     e.stopPropagation()
     setAdding('Adding')
-    const userId = localStorage.getItem('id')
+    var userId : string | null | undefined ;
+
+    if(typeof window !== undefined) {
+      userId = localStorage.getItem('id')
+    }
     const quantity = 1
     const response = await handleItemsToCart({ productId, userId, quantity })
     setAdding('Added')

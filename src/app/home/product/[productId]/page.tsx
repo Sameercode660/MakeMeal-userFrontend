@@ -24,7 +24,7 @@ export interface Product {
   availability: boolean
 }
 
-function page({params}: {params: {productId: string}}) {
+function Page({params}: {params: {productId: string}}) {
 
   const [data, setData] = useState<null | Product>(null)
 
@@ -66,4 +66,4 @@ function page({params}: {params: {productId: string}}) {
   )
 }
 
-export default page
+export default Page

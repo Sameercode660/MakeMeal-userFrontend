@@ -1,7 +1,7 @@
 import SignUp from '@/components/SignUp'
 import React from 'react'
 
-function page() {
+function Page() {
   return (
     <div>
       <SignUp></SignUp>
@@ -9,4 +9,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

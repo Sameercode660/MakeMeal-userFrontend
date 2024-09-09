@@ -10,7 +10,7 @@ import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { BiCool } from "react-icons/bi";
 
-function page({ params }: { params: { id: string } }) {
+function Page({ params }: { params: { id: string } }) {
 
   const { id } = params;
   const [title, setTitle] = useState<string>('')
@@ -129,4 +129,4 @@ function page({ params }: { params: { id: string } }) {
   )
 }
 
-export default page
+export default Page

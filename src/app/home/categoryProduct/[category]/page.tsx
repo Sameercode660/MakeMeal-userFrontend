@@ -6,7 +6,7 @@ import { categoryWiseDataFetching } from '@/utils/categoryWiseDataFetch'
 import Loader from '@/components/Loader'
 import ProductCard from '@/components/subComponent/ProductCard'
 
-function page({ params }: { params: { category: string } }) {
+function Page({ params }: { params: { category: string } }) {
 
   const [data, setData] = useState<null | Product[]>(null)
 
@@ -49,4 +49,4 @@ function page({ params }: { params: { category: string } }) {
   )
 }
 
-export default page
+export default Page
